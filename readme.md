@@ -1,9 +1,9 @@
-# Build squid3_proxy docker
+# Build squid3_proxy docker image
 ```
 docker build --tag=squid3_proxy -f squid3_proxy.dockerfile .
 ```
 
-# Create two network
+# Create two networks
 ```
 # with internet
 docker network create --subnet=172.19.0.0/16 internet
@@ -13,7 +13,7 @@ docker network create --internal --subnet 10.1.1.0/24 no-internet
 ```
 
 
-# Run proxy server
+# Run proxy server with internet accesss
 ```
 # run proxy server with internet work
 docker run --rm -t -d --network=internet -p 3128:3128 --name=proxy_server squid3_proxy
